@@ -5,8 +5,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM',
-                          branches: [[name: '*/master']],
-                          userRemoteConfigs: [[url: 'https://github.com/betillox/challenge-cicd-terraform']]])
+                          branches: [[name: '*/Prod']],
+                          userRemoteConfigs: [[url: 'https://github.com/betillox/terraform-eks-cicd.git']]])
             }
         }
 
