@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM',
-                          branches: [[name: '*/Prod']],
+                          branches: [[name: '*/main']],
                           userRemoteConfigs: [[url: 'https://github.com/betillox/terraform-eks-cicd.git']]])
             }
         }
@@ -48,13 +48,7 @@ pipeline {
 		
             }
         }
-        stage ("terraform validate") {
-            steps {
-		    
-                sh 'terraform validate'
-		    
-            }
-        }
+
         stage('Terraform Plan') {
             steps {
 		    
